@@ -15,13 +15,10 @@ namespace ConnStringTest.Demo
             try
             {
                 // Example: Test database connection
-                string connectionString = "Server=localhost;Database=TestDB;Integrated Security=true;" ;
+                string connectionString = "Server=localhost;Database=TestDB;Integrated Security=true;;Encrypt=true;TrustServerCertificate=true;";
 
                 SqlConnectionStringBuilder builder =
                             new SqlConnectionStringBuilder(connectionString);
-
-                builder.Encrypt = true;
-                builder.TrustServerCertificate = true;
 
                 Console.WriteLine($"Using connection string: {builder.ConnectionString}");
 
