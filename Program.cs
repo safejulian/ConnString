@@ -14,8 +14,9 @@ namespace ConnStringTest.Demo
 
             try
             {
-                // Example: Test database connection
-                string connectionString = "Server=localhost;Database=TestDB;Integrated Security=true;;Encrypt=true;TrustServerCertificate=true;";
+                // Read connection string from App.config
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"]?.ConnectionString;
+
 
                 SqlConnectionStringBuilder builder =
                             new SqlConnectionStringBuilder(connectionString);
