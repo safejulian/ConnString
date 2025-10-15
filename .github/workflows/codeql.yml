@@ -35,9 +35,6 @@ jobs:
         languages: ${{ matrix.language }}
         queries: security-and-quality
 
-    - name: Restore NuGet packages
-      run: nuget restore ConnStringTest.csproj
-
     - name: Build
       run: msbuild ConnStringTest.csproj /p:Configuration=Release
 
