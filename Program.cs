@@ -17,9 +17,15 @@ namespace ConnStringTest.Demo
                 // Example: Test database connection
                 string connectionString = "Server=localhost;Database=TestDB;Integrated Security=true;" ;
 
-                Console.WriteLine($"Using connection string: {connectionString}");
+                SqlConnectionStringBuilder builder =
+                            new SqlConnectionStringBuilder(connectionString);
 
-                using (SqlConnection cn = new SqlConnection(connectionString))
+                builder.Encrypt = true;
+                builder.TrustServerCertificate = true;
+
+                Console.WriteLine($"Using connection string: {builder.ConnectionString}");
+
+                using (SqlConnection cn = new SqlConnection(builder.ConnectionString))
                 {
                     cn.Open();
                     Console.WriteLine("Connection opened successfully!");
