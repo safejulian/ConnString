@@ -26,9 +26,9 @@ namespace ConnStringTest.Demo
                 Console.WriteLine($"Using connection string: {builder.ConnectionString}");
 
                  SqlConnection cn = new SqlConnection();
-                            cn.ConnectionString = builder.ToString();
+                 cn.ConnectionString = builder.ToString();
 
-                using (cn))
+                using (cn)
                 {
                     cn.Open();
                     Console.WriteLine("Connection opened successfully!");
